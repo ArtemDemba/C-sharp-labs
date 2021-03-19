@@ -17,7 +17,7 @@ namespace морской_бой
         }
         static void VerticalBorder(char[,] field)
         {
-            for (int cols = 1; cols < 18; cols += 2)            //построение вертикальных границ
+            for (int cols = 1; cols < 18; cols += 2)            //building vertical boundaries
             {
                 for (int rows = 0; rows < 18; rows += 2)
                 {
@@ -27,7 +27,7 @@ namespace морской_бой
         }
         static void HorizontalBorder(char[,] field)
         {
-            for (int cols = 0; cols < 18; cols++)            //построение горизонтальных границ
+            for (int cols = 0; cols < 18; cols++)            //building horizontal boundaries
             {
                 for (int rows = 1; rows < 18; rows += 2)
                 {
@@ -37,7 +37,7 @@ namespace морской_бой
         }
         static void VerticalCoordinats(char[,] field, char verticalItem = '1')
         {
-            for (int rows = 2; rows < 18; rows += 2)        //расстановка вертикальных координат
+            for (int rows = 2; rows < 18; rows += 2)        //arranging vertical boundaries
             {
                 field[rows, 0] = verticalItem;
                 verticalItem++;
@@ -45,7 +45,7 @@ namespace морской_бой
         }
         static void HorizontalCoordinats(char[,] field, char horizontalItem = 'a')
         {
-            for (int cols = 2; cols < 18; cols += 2)         //расстановка горизонтальных координат
+            for (int cols = 2; cols < 18; cols += 2)         //building horizontal boundaries
             {
                 field[0, cols] = horizontalItem;
                 horizontalItem++;
@@ -58,17 +58,17 @@ namespace морской_бой
             for (int i = 0; i < shipsAmount; i++)
             {
                 shipToCell = Console.ReadLine();
-                while (shipToCell.Length != 2 || shipToCell[0] < 97 || shipToCell[0] > 104 || //проверка на правильность ввода
+                while (shipToCell.Length != 2 || shipToCell[0] < 97 || shipToCell[0] > 104 || //checking for correct input
                                    shipToCell[1] < 49 || shipToCell[1] > 56)
                 {
                     Console.WriteLine("Uncorrect input! Try again:");
                     shipToCell = Console.ReadLine();
                 }
-                dx = ((shipToCell[0] - 97) * 2 + 2);        //определение горизонтальной координаты
-                dy = ((shipToCell[1] - 49) * 2 + 2);        //определение вертикальной координаты
+                dx = ((shipToCell[0] - 97) * 2 + 2);        //determination of the horizontal coordinate
+                dy = ((shipToCell[1] - 49) * 2 + 2);        //determination of the vertical coordinate
                 shipsInfoX[i] = dx;
                 shipsInfoY[i] = dy;
-                switch (i)                                    //проверка, чтобы корабли не стояли рядом
+                switch (i)                                    //checking that the ships are not standing nearby
                 {
                     case 1:
                         {
@@ -287,28 +287,28 @@ namespace морской_бой
             {
                 computerAtackY = AtackY.Next(2, 16);
             }
-            while(computersField[computerAtackY, computerAtackX] == '0')        //цикл, чтобы компьютер выбирал разные клетки
+            while(computersField[computerAtackY, computerAtackX] == '0')        //cycle to let the computer select different cells
             {
                 ComputersAtacking(usersField, computersField, Amount, shipsInfoX, ShipsInfoY, ref dx1, ref dx2, ref dx3, ref dx4,
                         ref dx5, ref dy1, ref dy2, ref dy3, ref dy4, ref dy5, ref ExitGameForComputer, ref ExitGameForUser);
             }
             for (i = 0, j = 0; i < Amount && j < Amount; i++, j++)
             {
-                if (computerAtackX == shipsInfoX[i] && computerAtackY == ShipsInfoY[i])     //если компьютер попал
+                if (computerAtackX == shipsInfoX[i] && computerAtackY == ShipsInfoY[i])     //if computer is hit
                 {
                     ExitGameForUser--;
-                    DotsAroundShip(computerAtackX, computerAtackY, usersField);             //компьютер стреляет снова
+                    DotsAroundShip(computerAtackX, computerAtackY, usersField);             //computer shoots again
                     DrawFields(usersField, computersField);
                     ComputersAtacking(usersField, computersField, Amount, shipsInfoX, ShipsInfoY, ref dx1, ref dx2, ref dx3, ref dx4,
                         ref dx5, ref dy1, ref dy2, ref dy3, ref dy4, ref dy5, ref ExitGameForComputer, ref ExitGameForUser);
                 }
             }
-                if (usersField[computerAtackY, computerAtackX] != 'X')     //если компьютер не попал
+                if (usersField[computerAtackY, computerAtackX] != 'X')     //if computer isnt hit
                 {
                     usersField[computerAtackY, computerAtackX] = '0';
                     DrawFields(usersField, computersField);
                     UsersAtacking(computersField, Amount, ref dx1, ref dx2, ref dx3, ref dx4, ref dx5, ref dy1, ref dy2, ref dy3, ref dy4, ref dy5,
-                        usersField, shipsInfoX, ShipsInfoY, ref ExitGameForComputer, ref ExitGameForUser);        //стреляет пользователь
+                        usersField, shipsInfoX, ShipsInfoY, ref ExitGameForComputer, ref ExitGameForUser);        //user hits
                 }
             
         }
@@ -334,7 +334,7 @@ namespace морской_бой
             ExitGame(ref ExitGameForComputer, ref ExitGameForUser, usersField, computersField);
             string choice = Console.ReadLine();
             int dx, dy;
-            while (choice.Length != 2 || choice[0] < 97 || choice[0] > 104 || //проверка на правильность ввода
+            while (choice.Length != 2 || choice[0] < 97 || choice[0] > 104 || //checking for correct input
                                choice[1] < 49 || choice[1] > 56)
             {
                 Console.WriteLine("Uncorrect input! Try again:");
@@ -342,14 +342,14 @@ namespace морской_бой
             }
             dx = ((choice[0] - 97) * 2 + 2);
             dy = ((choice[1] - 49) * 2 + 2);
-            while(computersField[dy,dx] == '0')     //цикл, проверяющий, чтобы нельзя было в одну и ту же клетку выстрелить
+            while(computersField[dy,dx] == '0')     //a cycle that checks that it is impossible to shoot at the same cell twice
             {
                 Console.WriteLine("You cant choose this cell. Try another!");
                 UsersAtacking(computersField, Amount, ref dx1, ref dx2, ref dx3, ref dx4,
             ref dx5, ref dy1, ref dy2, ref dy3, ref dy4, ref dy5, usersField, shipsInfoX, shipsInfoY, ref ExitGameForComputer, ref ExitGameForUser);
             }
             if ((dx == dx1 && dy == dy1) || (dx == dx2 && dy == dy2) || (dx == dx3 && dy == dy3) || (dx == dx4 && dy == dy4) ||
-                (dx == dx5 && dy == dy5))           //если пользователь попал
+                (dx == dx5 && dy == dy5))           //if user hits
             {
                 ExitGameForComputer--;
                 DotsAroundShip(dx, dy, computersField);
@@ -358,7 +358,7 @@ namespace морской_бой
             ref dx5, ref dy1, ref dy2, ref dy3, ref dy4, ref dy5, usersField, shipsInfoX, shipsInfoY, ref ExitGameForComputer, ref ExitGameForUser);
             }
             else
-            {
+            {               //if user doesnt hit
                 computersField[dy, dx] = '0';
                 DrawFields(usersField, computersField);
                 ComputersAtacking(usersField, computersField, Amount, shipsInfoX, shipsInfoY, ref dx1, ref dx2, ref dx3, ref dx4,
@@ -399,10 +399,10 @@ namespace морской_бой
                 ExitGameForUser = shipsAmount, ExitGameForComputer = shipsAmount;
             char[,] usersField = new char[18, 18];
             char[,] computersField = new char[18, 18];
-            int[] shipsInfoX = new int[shipsAmount];            //массив для хранения горизонтальных координат кораблей пользователя
-            int[] shipsInfoY = new int[shipsAmount];            //массив для хранения вертикальных координат кораблей пользователя
+            int[] shipsInfoX = new int[shipsAmount];            //array for storing the horizontal coordinates of the user's ships
+            int[] shipsInfoY = new int[shipsAmount];            //array for storing the vertical coordinates of the user's ships
             char horizontalItem = 'a', verticalItem = '1';
-            //******************************ПОЛЕ ИГРОКА******************************
+            //******************************USERS FIELD******************************
             VerticalBorder(usersField);
             HorizontalBorder(usersField);
             VerticalCoordinats(usersField, verticalItem);
@@ -411,17 +411,17 @@ namespace морской_бой
             Console.WriteLine("Arrange ships in format a4 or g5:");
             ArangeAndCheckShips(shipsAmount, usersField, shipsInfoX, shipsInfoY, usersField);
             Console.WriteLine();
-            //******************************ПОЛЕ КОМПЬЮТЕРА******************************
+            //******************************COMPUTERS FIELD******************************
             VerticalBorder(computersField);
             HorizontalBorder(computersField);
             VerticalCoordinats(computersField, verticalItem);
             HorizontalCoordinats(computersField, horizontalItem);
             PrintField(computersField);
-            //******************************ПРОРИСОВКА ПОЛЕЙ******************************
+            //******************************DRAWING FIELDS******************************
             DrawFields(usersField, computersField);
             ComputerArangeAndCheckShips(shipsAmount, computersField, ref dx1, ref dx2, ref dx3, ref dx4, ref dx5, ref dy1,
                 ref dy2, ref dy3, ref dy4, ref dy5);
-            //******************************ИГРОВОЙ ПРОЦЕСС******************************
+            //******************************GAME PROCESS******************************
             Console.WriteLine("Enter a cell (for example f3 or h7) for atacking: ");
             UsersAtacking(computersField, shipsAmount, ref dx1, ref dx2, ref dx3, ref dx4, ref dx5, ref dy1, ref dy2,
                 ref dy3, ref dy4, ref dy5, usersField, shipsInfoX, shipsInfoY, ref ExitGameForComputer, ref ExitGameForUser);
