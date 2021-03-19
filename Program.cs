@@ -6,7 +6,7 @@ namespace морской_бой
     {
         static void PrintField(char[,] field)
         {
-            for (int i = 0; i < 18; i++)                    
+            for (int i = 0; i < 18; i++)
             {
                 for (int j = 0; j < 18; j++)
                 {
@@ -172,7 +172,7 @@ namespace морской_бой
             }
         }
         static void ComputerArangeAndCheckShips(int shipsAmount, char[,] field, ref int dx1, ref int dx2, ref int dx3, ref int dx4,
-            ref int dx5, ref int dy1, ref int dy2,ref int dy3, ref int dy4, ref int dy5)
+            ref int dx5, ref int dy1, ref int dy2, ref int dy3, ref int dy4, ref int dy5)
         {
             int computerDx, computerDy;
             Random computerShipsX = new Random();
@@ -269,7 +269,7 @@ namespace морской_бой
             }
             Console.WriteLine();
         }
-        static void ComputersAtacking(char[,] usersField, char[,] computersField, int Amount, int[] shipsInfoX, int[] ShipsInfoY, 
+        static void ComputersAtacking(char[,] usersField, char[,] computersField, int Amount, int[] shipsInfoX, int[] ShipsInfoY,
             ref int dx1, ref int dx2, ref int dx3, ref int dx4, ref int dx5, ref int dy1, ref int dy2, ref int dy3, ref int dy4, ref int dy5,
             ref int ExitGameForComputer, ref int ExitGameForUser)
         {
@@ -287,22 +287,30 @@ namespace морской_бой
             {
                 computerAtackY = AtackY.Next(2, 16);
             }
-            for (i = 0, j = 0 ; i < shipsInfoX.Length && j < ShipsInfoY.Length; i++, j++)
+            while(computersField[computerAtackY, computerAtackX] == '0')        //цикл, чтобы компьютер выбирал разные клетки
+            {
+                ComputersAtacking(usersField, computersField, Amount, shipsInfoX, ShipsInfoY, ref dx1, ref dx2, ref dx3, ref dx4,
+                        ref dx5, ref dy1, ref dy2, ref dy3, ref dy4, ref dy5, ref ExitGameForComputer, ref ExitGameForUser);
+            }
+            for (i = 0, j = 0; i < Amount && j < Amount; i++, j++)
             {
                 if (computerAtackX == shipsInfoX[i] && computerAtackY == ShipsInfoY[i])     //если компьютер попал
                 {
                     ExitGameForUser--;
                     DotsAroundShip(computerAtackX, computerAtackY, usersField);             //компьютер стреляет снова
                     DrawFields(usersField, computersField);
+                    ComputersAtacking(usersField, computersField, Amount, shipsInfoX, ShipsInfoY, ref dx1, ref dx2, ref dx3, ref dx4,
+                        ref dx5, ref dy1, ref dy2, ref dy3, ref dy4, ref dy5, ref ExitGameForComputer, ref ExitGameForUser);
                 }
-                if (computerAtackX != shipsInfoX[i] || computerAtackY != ShipsInfoY[i])     //если компьютер не попал
+            }
+                if (usersField[computerAtackY, computerAtackX] != 'X')     //если компьютер не попал
                 {
                     usersField[computerAtackY, computerAtackX] = '0';
                     DrawFields(usersField, computersField);
                     UsersAtacking(computersField, Amount, ref dx1, ref dx2, ref dx3, ref dx4, ref dx5, ref dy1, ref dy2, ref dy3, ref dy4, ref dy5,
                         usersField, shipsInfoX, ShipsInfoY, ref ExitGameForComputer, ref ExitGameForUser);        //стреляет пользователь
                 }
-            }
+            
         }
         static void DotsAroundShip(int dx, int dy, char[,] field)
         {
@@ -310,7 +318,7 @@ namespace морской_бой
             {
                 for (int cols = 2; cols < 18; cols += 2)
                 {
-                    if(Math.Abs(cols - dx) <= 2 && Math.Abs(rows - dy) <= 2)
+                    if (Math.Abs(cols - dx) <= 2 && Math.Abs(rows - dy) <= 2)
                     {
                         field[rows, cols] = '0';
                     }
@@ -320,7 +328,7 @@ namespace морской_бой
             Console.Clear();
         }
         static void UsersAtacking(char[,] computersField, int Amount, ref int dx1, ref int dx2, ref int dx3, ref int dx4,
-            ref int dx5, ref int dy1, ref int dy2, ref int dy3, ref int dy4, ref int dy5, char[,] usersField, 
+            ref int dx5, ref int dy1, ref int dy2, ref int dy3, ref int dy4, ref int dy5, char[,] usersField,
             int[] shipsInfoX, int[] shipsInfoY, ref int ExitGameForComputer, ref int ExitGameForUser)
         {
             ExitGame(ref ExitGameForComputer, ref ExitGameForUser, usersField, computersField);
@@ -334,6 +342,12 @@ namespace морской_бой
             }
             dx = ((choice[0] - 97) * 2 + 2);
             dy = ((choice[1] - 49) * 2 + 2);
+            while(computersField[dy,dx] == '0')     //цикл, проверяющий, чтобы нельзя было в одну и ту же клетку выстрелить
+            {
+                Console.WriteLine("You cant choose this cell. Try another!");
+                UsersAtacking(computersField, Amount, ref dx1, ref dx2, ref dx3, ref dx4,
+            ref dx5, ref dy1, ref dy2, ref dy3, ref dy4, ref dy5, usersField, shipsInfoX, shipsInfoY, ref ExitGameForComputer, ref ExitGameForUser);
+            }
             if ((dx == dx1 && dy == dy1) || (dx == dx2 && dy == dy2) || (dx == dx3 && dy == dy3) || (dx == dx4 && dy == dy4) ||
                 (dx == dx5 && dy == dy5))           //если пользователь попал
             {
@@ -349,7 +363,7 @@ namespace морской_бой
                 DrawFields(usersField, computersField);
                 ComputersAtacking(usersField, computersField, Amount, shipsInfoX, shipsInfoY, ref dx1, ref dx2, ref dx3, ref dx4,
             ref dx5, ref dy1, ref dy2, ref dy3, ref dy4, ref dy5, ref ExitGameForComputer, ref ExitGameForUser);
-            }            
+            }
         }
         static void ExitGame(ref int ExitGameForComputer, ref int ExitGameForUser, char[,] usersField, char[,] computersField)
         {
@@ -359,7 +373,6 @@ namespace морской_бой
                 DrawFields(usersField, computersField);
                 Console.SetCursorPosition(50, 20);
                 Console.WriteLine("You win!");
-                return;
             }
             if (ExitGameForUser == 0)
             {
@@ -368,22 +381,29 @@ namespace морской_бой
                 Console.WriteLine("You lose(");
                 Console.SetCursorPosition(0, 10);
                 DrawFields(usersField, computersField);
-                return;
             }
         }
-        
-        
-        static void Main(string[] args)
+
+        static void DrawMenuItem(int Item, string[] KeyNames, ConsoleColor Foreground, ConsoleColor Background)
         {
+            Console.SetCursorPosition(Console.BufferWidth / 2 - KeyNames.Length / 2, Console.BufferHeight / 2 - KeyNames.Length / 2 + Item);
+            Console.BackgroundColor = Background;
+            Console.ForegroundColor = Foreground;
+            Console.Write(KeyNames[Item]);
+        }
+
+        static void Game()
+        {
+            Console.CursorVisible = true;
             int shipsAmount = 5, dx1 = 0, dx2 = 0, dx3 = 0, dx4 = 0, dx5 = 0, dy1 = 0, dy2 = 0, dy3 = 0, dy4 = 0, dy5 = 0,
                 ExitGameForUser = shipsAmount, ExitGameForComputer = shipsAmount;
-            char[,] usersField = new char[18,18];
+            char[,] usersField = new char[18, 18];
             char[,] computersField = new char[18, 18];
             int[] shipsInfoX = new int[shipsAmount];            //массив для хранения горизонтальных координат кораблей пользователя
             int[] shipsInfoY = new int[shipsAmount];            //массив для хранения вертикальных координат кораблей пользователя
             char horizontalItem = 'a', verticalItem = '1';
             //******************************ПОЛЕ ИГРОКА******************************
-            VerticalBorder(usersField); 
+            VerticalBorder(usersField);
             HorizontalBorder(usersField);
             VerticalCoordinats(usersField, verticalItem);
             HorizontalCoordinats(usersField, horizontalItem);
@@ -403,9 +423,55 @@ namespace морской_бой
                 ref dy2, ref dy3, ref dy4, ref dy5);
             //******************************ИГРОВОЙ ПРОЦЕСС******************************
             Console.WriteLine("Enter a cell (for example f3 or h7) for atacking: ");
-             UsersAtacking(computersField, shipsAmount, ref dx1, ref dx2, ref dx3, ref dx4, ref dx5, ref dy1, ref dy2,
-                 ref dy3, ref dy4, ref dy5, usersField, shipsInfoX, shipsInfoY, ref ExitGameForComputer, ref ExitGameForUser);
+            UsersAtacking(computersField, shipsAmount, ref dx1, ref dx2, ref dx3, ref dx4, ref dx5, ref dy1, ref dy2,
+                ref dy3, ref dy4, ref dy5, usersField, shipsInfoX, shipsInfoY, ref ExitGameForComputer, ref ExitGameForUser);
             DrawFields(usersField, computersField);
+            Console.ReadKey(true);
+        }
+        static void Main(string[] args)
+        {
+            Console.SetWindowSize(100, 30);
+            Console.SetBufferSize(100, 30);
+            Console.CursorVisible = false;
+            int Selected = 0;
+            ConsoleKeyInfo Button;
+            string[] KeyNames = { "Play", "Exit" };
+            DrawMenuItem(0, KeyNames, ConsoleColor.Black, ConsoleColor.White);
+            for (int i = 1; i < KeyNames.Length; i++)
+            {
+                DrawMenuItem(i, KeyNames, ConsoleColor.White, ConsoleColor.Black);
+            }
+            bool Exit = false;
+            do
+            {
+                Button = Console.ReadKey(true);
+                if (Button.Key == ConsoleKey.UpArrow && Selected > 0)
+                {
+                    DrawMenuItem(Selected, KeyNames, ConsoleColor.White, ConsoleColor.Black);
+                    Selected--;
+                    DrawMenuItem(Selected, KeyNames, ConsoleColor.Black, ConsoleColor.White);
+                }
+                if (Button.Key == ConsoleKey.DownArrow && Selected < KeyNames.Length - 1)
+                {
+                    DrawMenuItem(Selected, KeyNames, ConsoleColor.White, ConsoleColor.Black);
+                    Selected++;
+                    DrawMenuItem(Selected, KeyNames, ConsoleColor.Black, ConsoleColor.White);
+                }
+                if (Button.Key == ConsoleKey.Enter)
+                {
+                    switch (Selected)
+                    {
+                        case 0:
+                            Console.BackgroundColor = ConsoleColor.Black;
+                            Console.Clear();
+                            Game();
+                            break;
+                        case 1:
+                            Exit = true;
+                            break;
+                    }
+                }
+            } while (!Exit);
         }
     }
 }
