@@ -1,0 +1,13 @@
+C:\C#\mounth\mounth\bin\Debug\netcoreapp3.1\mounth.exe
+C:\C#\mounth\mounth\bin\Debug\netcoreapp3.1\mounth.deps.json
+C:\C#\mounth\mounth\bin\Debug\netcoreapp3.1\mounth.runtimeconfig.json
+C:\C#\mounth\mounth\bin\Debug\netcoreapp3.1\mounth.runtimeconfig.dev.json
+C:\C#\mounth\mounth\bin\Debug\netcoreapp3.1\mounth.dll
+C:\C#\mounth\mounth\bin\Debug\netcoreapp3.1\mounth.pdb
+C:\C#\mounth\mounth\obj\Debug\netcoreapp3.1\mounth.csprojAssemblyReference.cache
+C:\C#\mounth\mounth\obj\Debug\netcoreapp3.1\mounth.AssemblyInfoInputs.cache
+C:\C#\mounth\mounth\obj\Debug\netcoreapp3.1\mounth.AssemblyInfo.cs
+C:\C#\mounth\mounth\obj\Debug\netcoreapp3.1\mounth.csproj.CoreCompileInputs.cache
+C:\C#\mounth\mounth\obj\Debug\netcoreapp3.1\mounth.dll
+C:\C#\mounth\mounth\obj\Debug\netcoreapp3.1\mounth.pdb
+C:\C#\mounth\mounth\obj\Debug\netcoreapp3.1\mounth.genruntimeconfig.cache

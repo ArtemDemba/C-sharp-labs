@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\C#\\C-sharp-labs\\lab 2\\English letters\\English letters\\English letters.csproj": {}
+    "C:\\C#\\mounth\\mounth\\mounth.csproj": {}
   },
   "projects": {
-    "C:\\C#\\C-sharp-labs\\lab 2\\English letters\\English letters\\English letters.csproj": {
+    "C:\\C#\\mounth\\mounth\\mounth.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\C#\\C-sharp-labs\\lab 2\\English letters\\English letters\\English letters.csproj",
-        "projectName": "English letters",
-        "projectPath": "C:\\C#\\C-sharp-labs\\lab 2\\English letters\\English letters\\English letters.csproj",
+        "projectUniqueName": "C:\\C#\\mounth\\mounth\\mounth.csproj",
+        "projectName": "mounth",
+        "projectPath": "C:\\C#\\mounth\\mounth\\mounth.csproj",
         "packagesPath": "C:\\Users\\DVL35\\.nuget\\packages\\",
-        "outputPath": "C:\\C#\\C-sharp-labs\\lab 2\\English letters\\English letters\\obj\\",
+        "outputPath": "C:\\C#\\mounth\\mounth\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DVL35\\AppData\\Roaming\\NuGet\\NuGet.Config",
