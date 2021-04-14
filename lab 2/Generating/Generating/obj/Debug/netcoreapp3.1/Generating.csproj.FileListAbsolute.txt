@@ -1,0 +1,13 @@
+C:\C#\Generating\Generating\bin\Debug\netcoreapp3.1\Generating.exe
+C:\C#\Generating\Generating\bin\Debug\netcoreapp3.1\Generating.deps.json
+C:\C#\Generating\Generating\bin\Debug\netcoreapp3.1\Generating.runtimeconfig.json
+C:\C#\Generating\Generating\bin\Debug\netcoreapp3.1\Generating.runtimeconfig.dev.json
+C:\C#\Generating\Generating\bin\Debug\netcoreapp3.1\Generating.dll
+C:\C#\Generating\Generating\bin\Debug\netcoreapp3.1\Generating.pdb
+C:\C#\Generating\Generating\obj\Debug\netcoreapp3.1\Generating.csprojAssemblyReference.cache
+C:\C#\Generating\Generating\obj\Debug\netcoreapp3.1\Generating.AssemblyInfoInputs.cache
+C:\C#\Generating\Generating\obj\Debug\netcoreapp3.1\Generating.AssemblyInfo.cs
+C:\C#\Generating\Generating\obj\Debug\netcoreapp3.1\Generating.csproj.CoreCompileInputs.cache
+C:\C#\Generating\Generating\obj\Debug\netcoreapp3.1\Generating.dll
+C:\C#\Generating\Generating\obj\Debug\netcoreapp3.1\Generating.pdb
+C:\C#\Generating\Generating\obj\Debug\netcoreapp3.1\Generating.genruntimeconfig.cache
