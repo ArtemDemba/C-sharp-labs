@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\C#\\Generating\\Generating\\Generating.csproj",
+      "projectUniqueName": "C:\\C#\\C-sharp-labs\\lab 2\\Generating\\Generating\\Generating.csproj",
       "projectName": "Generating",
-      "projectPath": "C:\\C#\\Generating\\Generating\\Generating.csproj",
+      "projectPath": "C:\\C#\\C-sharp-labs\\lab 2\\Generating\\Generating\\Generating.csproj",
       "packagesPath": "C:\\Users\\DVL35\\.nuget\\packages\\",
-      "outputPath": "C:\\C#\\Generating\\Generating\\obj\\",
+      "outputPath": "C:\\C#\\C-sharp-labs\\lab 2\\Generating\\Generating\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\DVL35\\AppData\\Roaming\\NuGet\\NuGet.Config",

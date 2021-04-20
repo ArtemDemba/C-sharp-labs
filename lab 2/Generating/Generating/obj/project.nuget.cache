@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/kBbbgBZ5T0jHI9QdfVI5e1ng+jDwrZThZeWJVlHSytIKj8mx8z8PVw/BEInlKtnOqrAB0SbsVHdBZLvD059Dg==",
+  "dgSpecHash": "C6yVfQTpFhKFKLZMXDr4ifGZ/rYTgeEA3DAjZnGlWMX/+RX7bjE0jdOW7dzauy3vNZ7brJxYt8+NuDO3nBFvtg==",
   "success": true,
-  "projectFilePath": "C:\\C#\\Generating\\Generating\\Generating.csproj",
+  "projectFilePath": "C:\\C#\\C-sharp-labs\\lab 2\\Generating\\Generating\\Generating.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
