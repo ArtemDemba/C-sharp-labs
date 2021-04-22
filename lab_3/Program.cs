@@ -99,10 +99,9 @@ namespace lab_3
     {
         static void Main(string[] args)
         {
-            People p = new People(2);
-            p[0] = new Person(15, "Валентин", "Зайкин", 40);
-            p[1] = new Person(12, "Артём", "Дембовский", 87);
-            for (int i = 0; i < 2; i++)
+            People p = new People(1);
+            p[0] = new Person(18, "Артём", "Дембовский", 178);
+            for (int i = 0; i < 1; i++)
             {
                 p[i].PrintInfo();
             }
