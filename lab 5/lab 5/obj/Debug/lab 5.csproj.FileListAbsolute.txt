@@ -1,0 +1,7 @@
+C:\C#\C-sharp-labs\lab 5\lab 5\bin\Debug\lab 5.exe.config
+C:\C#\C-sharp-labs\lab 5\lab 5\bin\Debug\lab 5.exe
+C:\C#\C-sharp-labs\lab 5\lab 5\bin\Debug\lab 5.pdb
+C:\C#\C-sharp-labs\lab 5\lab 5\obj\Debug\lab 5.csprojAssemblyReference.cache
+C:\C#\C-sharp-labs\lab 5\lab 5\obj\Debug\lab 5.csproj.CoreCompileInputs.cache
+C:\C#\C-sharp-labs\lab 5\lab 5\obj\Debug\lab 5.exe
+C:\C#\C-sharp-labs\lab 5\lab 5\obj\Debug\lab 5.pdb
