@@ -1,0 +1,7 @@
+C:\C#\C-sharp-labs\lab 8\bin\Debug\lab 8.exe.config
+C:\C#\C-sharp-labs\lab 8\bin\Debug\lab 8.exe
+C:\C#\C-sharp-labs\lab 8\bin\Debug\lab 8.pdb
+C:\C#\C-sharp-labs\lab 8\obj\Debug\lab 8.csprojAssemblyReference.cache
+C:\C#\C-sharp-labs\lab 8\obj\Debug\lab 8.csproj.CoreCompileInputs.cache
+C:\C#\C-sharp-labs\lab 8\obj\Debug\lab 8.exe
+C:\C#\C-sharp-labs\lab 8\obj\Debug\lab 8.pdb
